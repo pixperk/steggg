@@ -1,5 +1,5 @@
-use anyhow::{anyhow, Result};
-use byteorder::{BigEndian, WriteBytesExt, ReadBytesExt};
+use anyhow::anyhow;
+use byteorder::{BigEndian, WriteBytesExt};
 use image::{DynamicImage, ImageEncoder, RgbaImage};
 use std::io::Cursor;
 pub fn embed_payload(image : DynamicImage, payload : &[u8]) -> anyhow::Result<RgbaImage>{
@@ -54,7 +54,7 @@ pub fn extract_payload(img: DynamicImage) -> anyhow::Result<Vec<u8>> {
 pub fn encode_to_png(img: &RgbaImage) -> anyhow::Result<Vec<u8>> {
     let mut png_bytes = Vec::new();
     {
-        let mut encoder = image::codecs::png::PngEncoder::new(&mut png_bytes);
+        let encoder = image::codecs::png::PngEncoder::new(&mut png_bytes);
         encoder.write_image(
             img.as_raw(),
             img.width(),
