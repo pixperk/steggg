@@ -1,0 +1,13 @@
+[package]
+name = "steggg"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+tokio = { version = "1.35", features = ["full"] }
+image = "0.25"
+chacha20poly1305 = "0.10"
+rand = { version = "0.8", features = ["getrandom"] }
+anyhow = "1.0"
+sha2 = "0.10"
+byteorder = "1.4"
